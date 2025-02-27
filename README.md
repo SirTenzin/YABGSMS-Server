@@ -1,15 +1,14 @@
-# social-media-graphql-server
+# YABGSMS: Yet Another Basic GraphQl Social Media Server
 
-To install dependencies:
+Very simple very basic GraphQL Social Media Server just as my first ever GraphQL server.
 
-```bash
-bun install
-```
+## Server (/server)
 
-To run:
+The server directory is where the bun apollo server is stored. The schema is in src/schema.ts and the placeholder data is in the src/data.ts folder.
+For now the data is simply static and has no backend database. It might but not right now, just focusing on the core GQL stuff.
 
-```bash
-bun run index.ts
-```
+You can run it using `cd /server && bun start` or `bun dev` for hot reloading.
 
-This project was created using `bun init` in bun v1.2.0. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Documentation (/docs)
+
+A simple fumadocs app for the documentation of this app. This will be deployed to vercel soon.

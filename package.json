@@ -13,6 +13,7 @@
     "graphql": "^16.10.0"
   },
   "scripts": {
-    "dev": "bun --hot index"
+    "dev": "bun --hot index",
+    "start": "bun run index"
   }
 }
