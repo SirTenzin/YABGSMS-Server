@@ -9,6 +9,6 @@ For now the data is simply static and has no backend database. It might but not 
 
 You can run it using `cd /server && bun start` or `bun dev` for hot reloading.
 
-## Documentation (/docs)
+## Documentation
 
-A simple fumadocs app for the documentation of this app. This will be deployed to vercel soon.
+Visit the documentation repository [here](https://github.com/SirTenzin/YABGSMSD)
