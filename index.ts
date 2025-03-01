@@ -1,31 +1,30 @@
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
-import typeDefs from './src/schema';
-import Resolvers from './src/resolvers'
+import { ApolloServer } from "@apollo/server";
+import { startServerAndCreateCloudflareWorkersHandler } from "@as-integrations/cloudflare-workers";
+import typeDefs from "./src/schema";
+import Resolvers from "./src/resolvers";
 
 interface Context {
-  Authorized: boolean
+	Authorized: boolean;
 }
 
 const server = new ApolloServer<Context>({
-  typeDefs,
-  resolvers: Resolvers,
+	typeDefs,
+	resolvers: Resolvers,
 });
 
-const tokens = ["secret"]
+const tokens = ["secret"];
 
-await startStandaloneServer(server, {
-  listen: { 
-    port: parseInt(process.env.PORT ?? '4000') 
-  },
-  context: async ({ req, res }) => {
-    let token = req.headers.authorization || '';
-    if(!token) return { Authorized: false }
-    else {
-      if(tokens.includes(token)) return { Authorized: true }
-      else return { Authorized: false }
-    }
-  }
-});
+export interface Env {}
 
-console.log(`🚀  Server ready at: http://localhost:${parseInt(process.env.PORT ?? '4000')}/graphql`);
+export default {
+	fetch: startServerAndCreateCloudflareWorkersHandler<Env, Context>(server, {
+		context: async ({ request }) => {
+			let token = request.headers.get("Authorization") || "";
+			if (!token) return { Authorized: false };
+			else {
+				if (tokens.includes(token)) return { Authorized: true };
+				else return { Authorized: false };
+			}
+		},
+	}),
+};

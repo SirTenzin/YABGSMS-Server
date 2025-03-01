@@ -5,6 +5,7 @@
       "name": "social-media-graphql-server",
       "dependencies": {
         "@apollo/server": "^4.11.3",
+        "@as-integrations/cloudflare-workers": "^1.1.0",
         "graphql": "^16.10.0",
       },
       "devDependencies": {
@@ -49,6 +50,8 @@
     "@apollo/utils.usagereporting": ["@apollo/utils.usagereporting@2.1.0", "", { "dependencies": { "@apollo/usage-reporting-protobuf": "^4.1.0", "@apollo/utils.dropunuseddefinitions": "^2.0.1", "@apollo/utils.printwithreducedwhitespace": "^2.0.1", "@apollo/utils.removealiases": "2.0.1", "@apollo/utils.sortast": "^2.0.1", "@apollo/utils.stripsensitiveliterals": "^2.0.1" }, "peerDependencies": { "graphql": "14.x || 15.x || 16.x" } }, "sha512-LPSlBrn+S17oBy5eWkrRSGb98sWmnEzo3DPTZgp8IQc8sJe0prDgDuppGq4NeQlpoqEHz0hQeYHAOA0Z3aQsxQ=="],
 
     "@apollo/utils.withrequired": ["@apollo/utils.withrequired@2.0.1", "", {}, "sha512-YBDiuAX9i1lLc6GeTy1m7DGLFn/gMnvXqlalOIMjM7DeOgIacEjjfwPqb0M1CQ2v11HhR15d1NmxJoRCfrNqcA=="],
+
+    "@as-integrations/cloudflare-workers": ["@as-integrations/cloudflare-workers@1.1.0", "", { "peerDependencies": { "@apollo/server": "^4.3.0", "graphql": "^16.6.0" } }, "sha512-d0ZXTzjGwQhpfHYnxKbzICfLtjQyAa8IPYnkMzzBQkFJex3eJ7faeHGLeuYynOgns1Ugf1XdTVVJDOmTvyQmMQ=="],
 
     "@graphql-tools/merge": ["@graphql-tools/merge@8.4.2", "", { "dependencies": { "@graphql-tools/utils": "^9.2.1", "tslib": "^2.4.0" }, "peerDependencies": { "graphql": "^14.0.0 || ^15.0.0 || ^16.0.0 || ^17.0.0" } }, "sha512-XbrHAaj8yDuINph+sAfuq3QCZ/tKblrTLOpirK0+CAgNlZUCHs0Fa+xtMUURgwCVThLle1AF7svJCxFizygLsw=="],
 
