@@ -1,26 +1,31 @@
 import { ApolloServer } from '@apollo/server';
 import { startStandaloneServer } from '@apollo/server/standalone';
 import typeDefs from './src/schema';
-import { users, posts } from './src/data'
+import Resolvers from './src/resolvers'
 
-const resolvers = {
-  Query: {
-    users: () => users,
-    posts: () => posts,
-  }, 
-};
+interface Context {
+  Authorized: boolean
+}
 
-const server = new ApolloServer({
+const server = new ApolloServer<Context>({
   typeDefs,
-  resolvers,
+  resolvers: Resolvers,
 });
 
-const port: number = parseInt(process.env.PORT ?? '4000');
+const tokens = ["secret"]
 
 await startStandaloneServer(server, {
   listen: { 
-    port
- },
+    port: parseInt(process.env.PORT ?? '4000') 
+  },
+  context: async ({ req, res }) => {
+    let token = req.headers.authorization || '';
+    if(!token) return { Authorized: false }
+    else {
+      if(tokens.includes(token)) return { Authorized: true }
+      else return { Authorized: false }
+    }
+  }
 });
 
-console.log(`🚀  Server ready at: http://localhost:${port}/graphql`);
+console.log(`🚀  Server ready at: http://localhost:${parseInt(process.env.PORT ?? '4000')}/graphql`);
