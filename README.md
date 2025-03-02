@@ -10,4 +10,4 @@ You can run it using `bun start` or `bun dev` for hot reloading.
 
 ## Documentation
 
-You can visit the documentation for this app [here](https://yabgsms-docs.tgca211859.workers.dev/docs) and the code for the docs [here](https://github.com/sirtenzin/yabgsmsd).
+You can visit the documentation for this app [here](https://yabgsms-docs.amianthus.workers.dev/docs) and the code for the docs [here](https://github.com/sirtenzin/yabgsmsd).
