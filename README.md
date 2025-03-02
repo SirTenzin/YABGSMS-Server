@@ -1,4 +1,4 @@
-# YABGSMS: Yet Another Basic GraphQl Social Media Server
+# YABGSMS: Yet Another Basic GraphQL Social Media Server
 
 Very simple very basic GraphQL Social Media Server just as my first ever GraphQL server.
 
